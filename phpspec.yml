@@ -1,0 +1,5 @@
+suites:
+    clades_suite:
+        namespace: 'Clades'
+        spec_path: 'app/spec/'
+        src_path: 'app/src/'
