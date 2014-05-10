@@ -122,6 +122,7 @@ return array(
 
 		'Baum\BaumServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
+		'GuilhermeGuitte\BehatLaravel\BehatLaravelServiceProvider',
 	),
 
 	/*

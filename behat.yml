@@ -1,4 +1,16 @@
 default:
+    formatter:
+            name:                       pretty
+            parameters:
+                decorated:              true
+                verbose:                false
+                time:                   true
+                language:               en
+                output_path:            null
+                multiline_arguments:    true
     paths:
-        features: app/tests/behat/features
-        bootstrap: %behat.paths.features%/bootstrap
+        features: app/tests/acceptance
+        bootstrap: app/tests/acceptance/contexts
+    context:
+        parameters:
+            base_url: http://localhost:8000
