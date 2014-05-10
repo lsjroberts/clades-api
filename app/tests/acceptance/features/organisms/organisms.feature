@@ -17,6 +17,10 @@ Scenario: Finding a specific organism
         And the "images" property is an array
     And reset scope
 
+Scenario: Finding a specific organism by invalid id
+    When I request "GET /organisms/foo"
+    Then I get a "404" response
+
 Scenario: Listing all organisms is not possible
     When I request "GET /organisms"
     Then I get a "400" response
@@ -46,6 +50,8 @@ Scenario: Searching organisms by partial classication
 Scenario: Searching organisms by full classication
     When I request "GET /organisms?q=Homo+Sapiens"
     Then I get a "200" response
+    And the "pagination" property is an object
+    And the "data" property is an array
     And scope into the "data" property
         And the properties exist:
             """

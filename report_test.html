@@ -1,3 +1,7 @@
+[H[2J
+Running acceptance tests... 
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns ="http://www.w3.org/1999/xhtml">
 <head>
@@ -322,14 +326,393 @@
 <body>
     <div id="behat">
         
-<div class="summary passed">
+<div class="feature">
+<h2>
+<span class="keyword">Feature: </span>
+<span class="title">Clades</span>
+</h2>
+
+<div class="scenario">
+<h3>
+<span class="keyword">Scenario: </span>
+<span class="title">Finding a specific clade</span>
+<span class="path">app/tests/acceptance/features/clades/clades.feature:3</span>
+</h3>
+<ol>
+<li class="passed">
+<div class="step">
+<span class="keyword">When </span>
+<span class="text">I request "<strong class="passed_param">GET</strong> <strong class="passed_param">/organisms/1/clade</strong>"</span>
+<span class="path">FeatureContext::iRequest()</span>
+</div>
+</li>
+<li class="failed">
+<div class="step">
+<span class="keyword">Then </span>
+<span class="text">I get a "<strong class="failed_param">200</strong>" response</span>
+<span class="path">FeatureContext::iGetAResponse()</span>
+</div>
+<pre class="backtrace">Output is text/html, which is not JSON and is therefore scary. Run the request manually.
+Failed asserting that 404 is identical to 200.</pre>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the "<strong class="skipped_param">pagination</strong>" property is an object</span>
+<span class="path">FeatureContext::thePropertyIsAnObject()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the "<strong class="skipped_param">data</strong>" property is an array</span>
+<span class="path">FeatureContext::thePropertyIsAnArray()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">scope into the first "<strong class="skipped_param">data</strong>" property</span>
+<span class="path">FeatureContext::scopeIntoTheFirstProperty()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the properties exist:</span>
+<span class="path">FeatureContext::thePropertiesExist()</span>
+</div>
+<pre class="argument">id</pre>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">reset scope</span>
+<span class="path">FeatureContext::resetScope()</span>
+</div>
+</li>
+</ol>
+</div>
+<div class="scenario">
+<h3>
+<span class="keyword">Scenario: </span>
+<span class="title">Finding a specific clade and children by depth</span>
+<span class="path">app/tests/acceptance/features/clades/clades.feature:15</span>
+</h3>
+<ol>
+<li class="passed">
+<div class="step">
+<span class="keyword">When </span>
+<span class="text">I request "<strong class="passed_param">GET</strong> <strong class="passed_param">/organisms/1/clade?depth=2</strong>"</span>
+<span class="path">FeatureContext::iRequest()</span>
+</div>
+</li>
+<li class="failed">
+<div class="step">
+<span class="keyword">Then </span>
+<span class="text">I get a "<strong class="failed_param">200</strong>" response</span>
+<span class="path">FeatureContext::iGetAResponse()</span>
+</div>
+<pre class="backtrace">Output is text/html, which is not JSON and is therefore scary. Run the request manually.
+Failed asserting that 404 is identical to 200.</pre>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the "<strong class="skipped_param">pagination</strong>" property is an object</span>
+<span class="path">FeatureContext::thePropertyIsAnObject()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the "<strong class="skipped_param">data</strong>" property is an array</span>
+<span class="path">FeatureContext::thePropertyIsAnArray()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">scope into the first "<strong class="skipped_param">data</strong>" property</span>
+<span class="path">FeatureContext::scopeIntoTheFirstProperty()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the properties exist:</span>
+<span class="path">FeatureContext::thePropertiesExist()</span>
+</div>
+<pre class="argument">id</pre>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">reset scope</span>
+<span class="path">FeatureContext::resetScope()</span>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="feature">
+<h2>
+<span class="keyword">Feature: </span>
+<span class="title">Organisms</span>
+</h2>
+
+<div class="scenario">
+<h3>
+<span class="keyword">Scenario: </span>
+<span class="title">Finding a specific organism</span>
+<span class="path">app/tests/acceptance/features/organisms/organisms.feature:3</span>
+</h3>
+<ol>
+<li class="passed">
+<div class="step">
+<span class="keyword">When </span>
+<span class="text">I request "<strong class="passed_param">GET</strong> <strong class="passed_param">/organisms/1</strong>"</span>
+<span class="path">FeatureContext::iRequest()</span>
+</div>
+</li>
+<li class="failed">
+<div class="step">
+<span class="keyword">Then </span>
+<span class="text">I get a "<strong class="failed_param">200</strong>" response</span>
+<span class="path">FeatureContext::iGetAResponse()</span>
+</div>
+<pre class="backtrace">Output is text/html, which is not JSON and is therefore scary. Run the request manually.
+Failed asserting that 404 is identical to 200.</pre>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">scope into the "<strong class="skipped_param">data</strong>" property</span>
+<span class="path">FeatureContext::scopeIntoTheProperty()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the properties exist:</span>
+<span class="path">FeatureContext::thePropertiesExist()</span>
+</div>
+<pre class="argument">id
+name
+classification
+description
+images
+url</pre>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the "<strong class="skipped_param">id</strong>" property is an integer</span>
+<span class="path">FeatureContext::thePropertyIsAnInteger()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the "<strong class="skipped_param">images</strong>" property is an array</span>
+<span class="path">FeatureContext::thePropertyIsAnArray()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">reset scope</span>
+<span class="path">FeatureContext::resetScope()</span>
+</div>
+</li>
+</ol>
+</div>
+<div class="scenario">
+<h3>
+<span class="keyword">Scenario: </span>
+<span class="title">Listing all organisms is not possible</span>
+<span class="path">app/tests/acceptance/features/organisms/organisms.feature:20</span>
+</h3>
+<ol>
+<li class="passed">
+<div class="step">
+<span class="keyword">When </span>
+<span class="text">I request "<strong class="passed_param">GET</strong> <strong class="passed_param">/organisms</strong>"</span>
+<span class="path">FeatureContext::iRequest()</span>
+</div>
+</li>
+<li class="failed">
+<div class="step">
+<span class="keyword">Then </span>
+<span class="text">I get a "<strong class="failed_param">400</strong>" response</span>
+<span class="path">FeatureContext::iGetAResponse()</span>
+</div>
+<pre class="backtrace">Output is text/html, which is not JSON and is therefore scary. Run the request manually.
+Failed asserting that 404 is identical to 400.</pre>
+</li>
+</ol>
+</div>
+<div class="scenario">
+<h3>
+<span class="keyword">Scenario: </span>
+<span class="title">Searching non-existent organisms</span>
+<span class="path">app/tests/acceptance/features/organisms/organisms.feature:24</span>
+</h3>
+<ol>
+<li class="passed">
+<div class="step">
+<span class="keyword">When </span>
+<span class="text">I request "<strong class="passed_param">GET</strong> <strong class="passed_param">/organisms?q=Foo+Bar</strong>"</span>
+<span class="path">FeatureContext::iRequest()</span>
+</div>
+</li>
+<li class="failed">
+<div class="step">
+<span class="keyword">Then </span>
+<span class="text">I get a "<strong class="failed_param">200</strong>" response</span>
+<span class="path">FeatureContext::iGetAResponse()</span>
+</div>
+<pre class="backtrace">Output is text/html, which is not JSON and is therefore scary. Run the request manually.
+Failed asserting that 404 is identical to 200.</pre>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the "<strong class="skipped_param">data</strong>" property contains <strong class="skipped_param">0</strong> items</span>
+<span class="path">FeatureContext::thePropertyContainsItems()</span>
+</div>
+</li>
+</ol>
+</div>
+<div class="scenario">
+<h3>
+<span class="keyword">Scenario: </span>
+<span class="title">Searching organisms by partial classication</span>
+<span class="path">app/tests/acceptance/features/organisms/organisms.feature:29</span>
+</h3>
+<ol>
+<li class="passed">
+<div class="step">
+<span class="keyword">When </span>
+<span class="text">I request "<strong class="passed_param">GET</strong> <strong class="passed_param">/organisms?q=Homo</strong>"</span>
+<span class="path">FeatureContext::iRequest()</span>
+</div>
+</li>
+<li class="failed">
+<div class="step">
+<span class="keyword">Then </span>
+<span class="text">I get a "<strong class="failed_param">200</strong>" response</span>
+<span class="path">FeatureContext::iGetAResponse()</span>
+</div>
+<pre class="backtrace">Output is text/html, which is not JSON and is therefore scary. Run the request manually.
+Failed asserting that 404 is identical to 200.</pre>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the "<strong class="skipped_param">pagination</strong>" property is an object</span>
+<span class="path">FeatureContext::thePropertyIsAnObject()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the "<strong class="skipped_param">data</strong>" property is an array</span>
+<span class="path">FeatureContext::thePropertyIsAnArray()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">scope into the first "<strong class="skipped_param">data</strong>" property</span>
+<span class="path">FeatureContext::scopeIntoTheFirstProperty()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the properties exist:</span>
+<span class="path">FeatureContext::thePropertiesExist()</span>
+</div>
+<pre class="argument">id
+name
+classification
+description
+images
+url</pre>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">reset scope</span>
+<span class="path">FeatureContext::resetScope()</span>
+</div>
+</li>
+</ol>
+</div>
+<div class="scenario">
+<h3>
+<span class="keyword">Scenario: </span>
+<span class="title">Searching organisms by full classication</span>
+<span class="path">app/tests/acceptance/features/organisms/organisms.feature:46</span>
+</h3>
+<ol>
+<li class="passed">
+<div class="step">
+<span class="keyword">When </span>
+<span class="text">I request "<strong class="passed_param">GET</strong> <strong class="passed_param">/organisms?q=Homo+Sapiens</strong>"</span>
+<span class="path">FeatureContext::iRequest()</span>
+</div>
+</li>
+<li class="failed">
+<div class="step">
+<span class="keyword">Then </span>
+<span class="text">I get a "<strong class="failed_param">200</strong>" response</span>
+<span class="path">FeatureContext::iGetAResponse()</span>
+</div>
+<pre class="backtrace">Output is text/html, which is not JSON and is therefore scary. Run the request manually.
+Failed asserting that 404 is identical to 200.</pre>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">scope into the "<strong class="skipped_param">data</strong>" property</span>
+<span class="path">FeatureContext::scopeIntoTheProperty()</span>
+</div>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">the properties exist:</span>
+<span class="path">FeatureContext::thePropertiesExist()</span>
+</div>
+<pre class="argument">id
+name
+classification
+description
+images
+url</pre>
+</li>
+<li class="skipped">
+<div class="step">
+<span class="keyword">And </span>
+<span class="text">reset scope</span>
+<span class="path">FeatureContext::resetScope()</span>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="summary failed">
 <div class="counters">
 <p class="scenarios">
-No scenarios</p>
+7 scenarios (<strong class="failed">7 failed</strong>)
+</p>
 <p class="steps">
-No steps</p>
+38 steps (<strong class="passed">7 passed</strong>, <strong class="skipped">24 skipped</strong>, <strong class="failed">7 failed</strong>)
+</p>
 <p class="time">
-0m0.002s
+0m0.298s
 </p>
 </div>
 <div class="switchers">

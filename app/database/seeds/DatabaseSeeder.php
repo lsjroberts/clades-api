@@ -9,9 +9,23 @@ class DatabaseSeeder extends Seeder {
 	 */
 	public function run()
 	{
+		if (App::environment() === 'production')
+		{
+			exit('Can not run seeds on production environment');
+		}
+
 		Eloquent::unguard();
 
-		// $this->call('UserTableSeeder');
+		$tables = [
+			'organisms'
+		];
+
+		foreach ($tables as $table)
+		{
+			DB::table($table)->truncate();
+		}
+
+		$this->call('OrganismsTableSeeder');
 	}
 
 }

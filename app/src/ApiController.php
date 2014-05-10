@@ -1,5 +1,7 @@
 <?php namespace Clades;
 
+use App;
+use Input;
 use Response;
 use YamlDumper;
 use BaseController;
@@ -11,11 +13,12 @@ use Illuminate\HTTP\Response as IlluminateResponse;
 
 class ApiController extends BaseController
 {
-    const CODE_WRONG_ARGS = 'GEN-WRONG-ARGS';
-    const CODE_NOT_FOUND = 'GEN-NOT-FOUND';
-    const CODE_INTERNAL_ERROR = 'GEN-INTERNAL';
-    const CODE_UNAUTHORIZED = 'GEN-UNAUTHORIZED';
-    const CODE_FORBIDDEN = 'GEN-FORBIDDEN';
+    const CODE_WRONG_ARGS = 'GENERIC-WRONG-ARGS';
+    const CODE_NOT_FOUND = 'GENERIC-NOT-FOUND';
+    const CODE_INTERNAL_ERROR = 'GENERIC-INTERNAL';
+    const CODE_UNAUTHORIZED = 'GENERIC-UNAUTHORIZED';
+    const CODE_FORBIDDEN = 'GENERIC-FORBIDDEN';
+    const CODE_INVALID_MIME_TYPE = 'GENERIC-MIME-TYPE';
 
     protected $fractal;
 
@@ -68,7 +71,7 @@ class ApiController extends BaseController
 
         return $this->respondWithArray([
             'error' => [
-                'code' => $errorCode
+                'code' => $errorCode,
                 'http_code' => $this->statusCode,
                 'message' => $message,
             ]
@@ -129,13 +132,21 @@ class ApiController extends BaseController
 
             default:
                 $contentType = 'application/json';
-                $content = json_encode([
-                    'error' => [
-                        'code' => static::CODE_INVALID_MIME_TYPE,
-                        'http_code' => 415,
-                        'message' => sprintf('Content of type %s is not supported', $mimeType)
-                    ]
-                ]);
+                if (App::environment() == 'production')
+                {
+                    $content = json_encode([
+                        'error' => [
+                            'code' => static::CODE_INVALID_MIME_TYPE,
+                            'http_code' => 415,
+                            'message' => sprintf('Content of type %s is not supported', $mimeType)
+                        ]
+                    ]);
+                }
+                else
+                {
+                    $content = json_encode($array);
+                }
+
                 break;
         }
 

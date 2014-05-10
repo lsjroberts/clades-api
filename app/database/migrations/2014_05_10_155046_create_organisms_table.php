@@ -3,8 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateCladesTable extends Migration
-{
+class CreateOrganismsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -13,9 +12,12 @@ class CreateCladesTable extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('clades', function(Blueprint $table) {
+		Schema::create('organisms', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name');
+			$table->string('classification');
+			$table->string('description');
+			$table->string('url');
 
 			$table->integer('parent_id')->nullable();
 			$table->integer('left')->nullable();
@@ -38,7 +40,7 @@ class CreateCladesTable extends Migration
 	 */
 	public function down()
 	{
-		Schema::drop('clades');
+		Schema::drop('organisms');
 	}
 
 }

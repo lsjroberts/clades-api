@@ -16,6 +16,49 @@ Route::get('/', function()
     return 'Clades';
 });
 
+/*
+|--------------------------------------------------------------------------
+| Organisms
+|--------------------------------------------------------------------------
+|
+| ...
+|
+*/
+
+// Create
+Route::post('/organisms', [
+    'as' => 'organisms.create',
+    'uses' => 'Clades\Organisms\OrganismsController@create'
+]);
+
+// Read
+Route::get('/organisms/{id}', [
+    'as' => 'organisms.show',
+    'uses' => 'Clades\Organisms\OrganismsController@show'
+])
+->where('id', '[0-9]+');
+
+// Update
+Route::put('/organisms/{id}', [
+    'as' => 'organisms.update',
+    'uses' => 'Clades\Organisms\OrganismsController@update'
+])
+->where('id', '[0-9]+');
+
+// Delete
+Route::delete('/organisms/{id}', [
+    'as' => 'organisms.delete',
+    'before' => 'auth',
+    'uses' => 'Clades\Organisms\OrganismsController@delete'
+])
+->where('id', '[0-9]+');
+
+// List
+Route::get('/organisms', [
+    'as' => 'organisms.index',
+    'uses' => 'Clades\Organisms\OrganismsController@index'
+]);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +73,10 @@ Route::get('/', function()
 Route::post('/clades', 'Clades\CladesController@create');
 
 // Read
-Route::get('/clades/{id}', 'Clades\CladesController@show');
+Route::get('/clades/{id}', [
+    'as' => 'clades.show',
+    'uses' => 'Clades\CladesController@show'
+]);
 
 // Update
 Route::put('/clades/{id}', 'Clades\CladesController@update');

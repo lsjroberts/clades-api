@@ -1,5 +1,6 @@
-<?php namespace Clades\Organisms\OrganismsController;
+<?php namespace Clades\Organisms;
 
+use Input;
 use Clades\ApiController;
 use Clades\Transformer\OrganismTransformer;
 
@@ -7,7 +8,12 @@ class OrganismsController extends ApiController
 {
     public function index()
     {
-        $organisms = Organism::take(10)->get();
+        if (! Input::has('q'))
+        {
+            return $this->errorWrongArgs("You must provide search keywords to the 'q' parameter.");
+        }
+
+        $organisms = Organism::query()->byKeywords(Input::get('q'));
 
         return $this->respondWithCollection($organisms, new OrganismTransformer);
     }
@@ -26,7 +32,7 @@ class OrganismsController extends ApiController
             return $this->errorNotFound(sprintf('An organism with id %s does not exist', $id));
         }
 
-        return $this->responseWithItem($organism, new OrganismTransformer);
+        return $this->respondWithItem($organism, new OrganismTransformer);
     }
 
     public function update()

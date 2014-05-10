@@ -18,6 +18,7 @@ Run acceptance tests with:
 
 ```
 php artisan behat:run
+php artisan behat:run --format=html > report_test.html
 ```
 
 ### Unit Tests
