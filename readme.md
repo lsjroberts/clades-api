@@ -34,28 +34,32 @@ New taxonomies tend to represent a clade, but this is not always the case and wa
 
 For example, mammals in taxonomy are defined as:
 
-- Subphylum **Vertebrata**
-    - Infraphylum **Gnathostomoata**
-        - Superclass **Tetrapoda**
-            - Class **Synapsida**
-                - Class **Mammalia**
+```
+> Subphylum **Vertebrata**
+  > Infraphylum **Gnathostomoata**
+    > Superclass **Tetrapoda**
+      > Class **Synapsida**
+        > Class **Mammalia**
+```
 
 However the clades would be listed as:
 
-- Subphylum **Vertebrata**
-    - Infraphylum **Gnathostomoata**
-        - Superclass **Tetrapoda**
-            - Class **Synapsida**
-                - Eupelycosauria
-                    - Sphenaconditia
-                        - Therapsida
-                            - Eutherapsida
-                                - Neotherapsida
-                                    - Theriodontia
-                                        - Eutheridontia
-                                            - Cynodontia
-                                                - Probainognathia
-                                                    - Class **Mammalia**
+```
+> Subphylum **Vertebrata**
+  > Infraphylum **Gnathostomoata**
+    > Superclass **Tetrapoda**
+      > Class **Synapsida**
+        > Eupelycosauria
+          > Sphenaconditia
+            > Therapsida
+              > Eutherapsida
+                > Neotherapsida
+                  > Theriodontia
+                    > Eutheridontia
+                      > Cynodontia
+                        > Probainognathia
+                          > Class **Mammalia**
+```
 
 So **Mammalia** are descendants of **Synapsida**. This particular difference between the taxonomy and clades may partially derive from the fact that **Mammalia** are the only extant **Synapsida**.
 
