@@ -7,8 +7,8 @@ Scenario: Finding a specific organism
         And the properties exist:
             """
             id
-            name
-            classification
+            common_name
+            scientific_name
             description
             images
             url
@@ -17,9 +17,9 @@ Scenario: Finding a specific organism
         And the "images" property is an array
     And reset scope
 
-Scenario: Finding a specific organism by invalid id
+Scenario: Attempting to find a specific organism with invalid id
     When I request "GET /organisms/foo"
-    Then I get a "404" response
+    Then I get a "400" response
 
 Scenario: Listing all organisms is not possible
     When I request "GET /organisms"
@@ -39,8 +39,8 @@ Scenario: Searching organisms by partial classication
         And the properties exist:
             """
             id
-            name
-            classification
+            common_name
+            scientific_name
             description
             images
             url
@@ -56,8 +56,8 @@ Scenario: Searching organisms by full classication
         And the properties exist:
             """
             id
-            name
-            classification
+            common_name
+            scientific_name
             description
             images
             url

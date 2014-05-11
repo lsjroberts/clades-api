@@ -42,9 +42,9 @@ class OrganismsController extends ApiController
 
     public function delete()
     {
-        $clade = Organism::findOrFail($id);
+        $organism = Organism::findOrFail($id);
 
-        $clade->delete();
+        $organism->delete();
     }
 
 }

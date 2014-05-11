@@ -11,3 +11,7 @@
 |
 */
 
+Artisan::add(new SeedFromCSVCommand);
+Artisan::add(new CladesImportTaxaCommand);
+Artisan::add(new CladesSearchTaxaCommand);
+Artisan::add(new CladesRequestCommand);

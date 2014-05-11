@@ -18,6 +18,27 @@ Route::get('/', function()
 
 /*
 |--------------------------------------------------------------------------
+| Taxa
+|--------------------------------------------------------------------------
+|
+|
+|
+*/
+
+// Show
+Route::get('/taxa/{id}', [
+    'as' => 'taxa.show',
+    'uses' => 'Clades\Taxa\TaxaController@show'
+]);
+
+// List
+Route::get('/taxa', [
+    'as' => 'taxa.index',
+    'uses' => 'Clades\Taxa\TaxaController@index'
+]);
+
+/*
+|--------------------------------------------------------------------------
 | Organisms
 |--------------------------------------------------------------------------
 |
@@ -69,24 +90,8 @@ Route::get('/organisms', [
 |
 */
 
-// Create
-Route::post('/clades', 'Clades\CladesController@create');
-
 // Read
-Route::get('/clades/{id}', [
+Route::get('/organisms/{id}/clade', [
     'as' => 'clades.show',
     'uses' => 'Clades\CladesController@show'
 ]);
-
-// Update
-Route::put('/clades/{id}', 'Clades\CladesController@update');
-
-// Delete
-Route::delete('/clades/{id}', [
-    'before' => 'auth',
-    'uses' => 'Clades\CladesController@delete'
-]);
-
-// List
-Route::get('/clades', 'Clades\CladesController@list');
-

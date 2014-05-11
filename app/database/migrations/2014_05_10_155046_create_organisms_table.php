@@ -14,21 +14,15 @@ class CreateOrganismsTable extends Migration {
 	{
 		Schema::create('organisms', function(Blueprint $table) {
 			$table->increments('id');
-			$table->string('name');
-			$table->string('classification');
+
+			$table->string('scientific_name');
+			$table->string('common_name');
 			$table->string('description');
 			$table->string('url');
 
-			$table->integer('parent_id')->nullable();
-			$table->integer('left')->nullable();
-			$table->integer('right')->nullable();
-			$table->integer('depth')->nullable();
+			$table->integer('taxon_id');
 
 			$table->timestamps();
-
-			$table->index('parent_id');
-			$table->index('left');
-			$table->index('right');
 		});
 	}
 

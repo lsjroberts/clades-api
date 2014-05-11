@@ -17,8 +17,8 @@ class OrganismTransformer extends TransformerAbstract
     {
         return [
             'id' => (int) $organism->id,
-            'classification' => $organism->classification,
-            'name' => $organism->name,
+            'scientific_name' => $organism->scientific_name,
+            'common_name' => $organism->common_name,
             'description' => $organism->description,
             'images' => $organism->images,
             'url' => $organism->url,
@@ -30,17 +30,11 @@ class OrganismTransformer extends TransformerAbstract
                     ])
                 ],
                 [
-                    'rel' => 'parent',
-                    'uri' => URL::route('organisms.show', [
-                        'id' => $organism->parent_id
+                    'rel' => 'taxon',
+                    'uri' => URL::route('taxa.show', [
+                        'id' => $organism->taxon_id
                     ])
                 ],
-                [
-                    'rel' => 'clade',
-                    'uri' => URL::route('clades.show', [
-                        'organismId' => $organism->id
-                    ])
-                ]
             ]
         ];
     }

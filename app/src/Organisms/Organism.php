@@ -1,11 +1,11 @@
 <?php namespace Clades\Organisms;
 
-use Baum\Node;
+use Eloquent;
 
 /**
 * Organism
 */
-class Organism extends Node
+class Organism extends Eloquent
 {
 
     /**
@@ -15,55 +15,17 @@ class Organism extends Node
     */
     protected $table = 'organisms';
 
-    /**
-    * Column name which stores reference to parent's node.
-    *
-    * @var int
-    */
-    protected $parentColumn = 'parent_id';
-
-    /**
-    * Column name for the left index.
-    *
-    * @var int
-    */
-    protected $leftColumn = 'left';
-
-    /**
-    * Column name for the right index.
-    *
-    * @var int
-    */
-    protected $rightColumn = 'right';
-
-    /**
-    * Column name for the depth field.
-    *
-    * @var int
-    */
-    protected $depthColumn = 'depth';
-
-    /**
-    * With Baum, all NestedSet-related fields are guarded from mass-assignment
-    * by default.
-    *
-    * @var array
-    */
-    protected $guarded = array('id', 'parent_id', 'left', 'right', 'depth');
-
-    /**
-    * Columns which restrict what we consider our Nested Set list
-    *
-    * @var array
-    */
-    protected $scoped = array();
+    public function taxon()
+    {
+        return $this->belongsTo('\Clades\Taxa\Taxon', 'taxon_id');
+    }
 
     public function scopeByKeywords($query, $keywords)
     {
         return $query
-            ->where('classification', '=', $keywords)
-            ->orWhere('classification', 'LIKE', '%' . $keywords . ' ')
-            ->orWhere('name', 'LIKE', '%' . $keywords);
+            ->where('scientific_name', '=', $keywords)
+            ->orWhere('scientific_name', 'LIKE', '%' . $keywords . ' ')
+            ->orWhere('common_name', '=', $keywords);
     }
 
 }

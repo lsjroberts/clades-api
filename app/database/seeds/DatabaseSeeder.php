@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder {
 			DB::table($table)->truncate();
 		}
 
+		$this->call('TaxaTableSeeder');
 		$this->call('OrganismsTableSeeder');
 	}
 
