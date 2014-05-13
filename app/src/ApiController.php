@@ -27,6 +27,7 @@ class ApiController extends BaseController
     public function __construct(Manager $fractal)
     {
         $this->fractal = $fractal;
+        $this->fractal->setRequestedScopes(explode(',', Input::get('embed')));
     }
 
     public function getStatusCode()
@@ -130,6 +131,11 @@ class ApiController extends BaseController
                 $content = $dumper->dump($array, 2);
                 break;
 
+            case 'text/html':
+                $contentType = 'text/html';
+                $content = \View::make($this->showView, $array);
+                break;
+
             default:
                 $contentType = 'application/json';
                 if (App::environment() == 'production')
@@ -138,7 +144,7 @@ class ApiController extends BaseController
                         'error' => [
                             'code' => static::CODE_INVALID_MIME_TYPE,
                             'http_code' => 415,
-                            'message' => sprintf('Content of type %s is not supported', $mimeType)
+                            'message' => sprintf("Content of type '%s' is not supported", $mimeType)
                         ]
                     ]);
                 }
@@ -146,7 +152,6 @@ class ApiController extends BaseController
                 {
                     $content = json_encode($array);
                 }
-
                 break;
         }
 

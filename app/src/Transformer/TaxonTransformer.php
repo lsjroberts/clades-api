@@ -1,11 +1,16 @@
 <?php namespace Clades\Transformer;
 
 use URL;
+use Input;
 use Clades\Taxa\Taxon;
 use League\Fractal\TransformerAbstract;
 
 class TaxonTransformer extends TransformerAbstract
 {
+    public $availableEmbeds = [
+        'taxonomy',
+        'source',
+    ];
 
     /**
      * Turns this item object into a generic array.
@@ -24,23 +29,33 @@ class TaxonTransformer extends TransformerAbstract
             ]
         ];
 
-        foreach ($taxon->getAncestors() as $ancestor)
-        {
-            $links[] = [
-                'rel' => 'taxa.' . strtolower($ancestor->type),
-                'url' => URL::route('taxa.show', [
-                    'id' => $ancestor->id
-                ])
-            ];
-        }
-
         return [
             'id' => (int) $taxon->id,
             'name' => $taxon->name,
-            'type' => $taxon->type,
+            'rank' => $taxon->rank,
             'url' => $taxon->url,
             'links' => $links,
         ];
+    }
+
+    public function embedTaxonomy(Taxon $taxon)
+    {
+        $ancestors = $taxon->ancestors();
+
+        if (Input::has('ranks') and Input::get('ranks') == 'major')
+        {
+            $ancestors->onlyMajorRanks();
+        }
+
+        return $this->collection($ancestors->get(), new TaxonTransformer);
+    }
+
+    public function embedSource(Taxon $taxon)
+    {
+        if ($taxon->source)
+        {
+            return $this->item($taxon->source, new SourceTransformer);
+        }
     }
 
 }

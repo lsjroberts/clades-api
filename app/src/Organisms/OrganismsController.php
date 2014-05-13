@@ -13,7 +13,7 @@ class OrganismsController extends ApiController
             return $this->errorWrongArgs("You must provide search keywords to the 'q' parameter.");
         }
 
-        $organisms = Organism::query()->byKeywords(Input::get('q'));
+        $organisms = Organism::query()->byKeywords(Input::get('q'))->get();
 
         return $this->respondWithCollection($organisms, new OrganismTransformer);
     }

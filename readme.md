@@ -90,6 +90,46 @@ It's hardly suprising though when you consider that evolution in reality isn't a
 
 So, I'll do what I can but there may be errors / differences in data. I'll also build in a simple/complete toggle which switches between only the major 8 ranks and all known ranks.
 
+Having said all that I'll be listing data with sources where possible, allowing multiple sources for the same datum. So for example, the family [Herrerasauridae](http://en.wikipedia.org/wiki/Herrerasauridae) can be described in two different cladograms depending on the source.
+
+**Fernando E. Novas, Martin D. Ezcurra, Sankar Chatterjee and T. S. Kutty in 2011**
+
+```
+> Saurischia
+  > Herrerasauridae
+    > Herrasaurus
+    > Staurikosaurus
+    > ?
+  > Eusaurischia
+    > Theropoda
+      > Chindesaurus
+    > Sauropodmorpha
+```
+
+**Hans-Dieter Sues, Sterling J. Nesbitt, David S Berman and Amy C. Henrici, in 2011/12**
+
+```
+> Saurischia
+  > Sauropodmorpha
+  > Theropoda
+    > Herrerasauridae
+      > Staurikosaurus
+      > .
+        > Herrasaurus
+        > Chindesaurus
+```
+
+As you can see, many of the taxa / clades move around. This will be represented by having the cladograms side by side with toggles to switch them on / off.
+
+
+## Data
+
+### Taxa
+
+### Clades
+
+### Organisms
+
 ## API
 
 ## Testing

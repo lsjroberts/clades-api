@@ -16,9 +16,11 @@ class CreateTaxaTable extends Migration {
 			$table->increments('id');
 
 			$table->string('name');
-			$table->string('type');
+			$table->string('rank');
 			$table->boolean('extant');
 			$table->string('url');
+
+			$table->string('source_id');
 
 			$table->integer('parent_id')->nullable();
 			$table->integer('left')->nullable();

@@ -1,0 +1,52 @@
+@import compass
+
+$colorOne: #D9583B
+$colorTwo: #BF495E
+$colorThree: #D9CF48
+$colorFour: #41A693
+$colorFive: #F2EC9B
+
+html,body,article,h1,p
+    margin: 0
+    padding: 0
+    font-size: 18px
+
+body
+    text-align: center
+
+.hidden
+    display: none
+
+.large-header
+    padding: 2em
+    color: #fff
+    background: $colorOne
+
+    h1
+        font-size: 60px
+
+.taxa-wrapper
+    position: relative
+
+.taxon
+    position: absolute
+    top: 0
+    left: 0
+
+    article
+        padding: .5em 1em
+        border: 10px solid #fff
+        border-radius: 2px
+        width: 300px
+        background: #eee
+
+        &:hover, &:hover ~ .taxon article
+            background: $colorFive
+
+        h1
+            margin-bottom: .6em
+            font-size: 1.4em
+
+        p
+            font-size: 1em
+            line-height: 1.6em

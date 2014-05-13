@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function()
-{
-    return 'Clades';
-});
+Route::get('/', [
+    'as' => 'home',
+    'uses' => 'Clades\HomeController@index'
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +34,11 @@ Route::get('/taxa/{id}', [
 // List
 Route::get('/taxa', [
     'as' => 'taxa.index',
+    'uses' => 'Clades\Taxa\TaxaController@index'
+]);
+
+Route::get('/taxa?source={sourceId}', [
+    'as' => 'taxa.filter.source',
     'uses' => 'Clades\Taxa\TaxaController@index'
 ]);
 

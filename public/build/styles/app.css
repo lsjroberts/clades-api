@@ -1,0 +1,16 @@
+html, body, article, h1, p { margin: 0; padding: 0; font-size: 18px; }
+
+body { text-align: center; }
+
+.hidden { display: none; }
+
+.large-header { padding: 2em; color: white; background: #d9583b; }
+.large-header h1 { font-size: 60px; }
+
+.taxa-wrapper { position: relative; }
+
+.taxon { position: absolute; top: 0; left: 0; }
+.taxon article { padding: 0.5em 1em; border: 10px solid white; border-radius: 2px; width: 300px; background: #eeeeee; }
+.taxon article:hover, .taxon article:hover ~ .taxon article { background: #f2ec9b; }
+.taxon article h1 { margin-bottom: 0.6em; font-size: 1.4em; }
+.taxon article p { font-size: 1em; line-height: 1.6em; }

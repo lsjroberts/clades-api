@@ -14,7 +14,7 @@ class TaxaTableSeeder extends Seeder {
             $name = ucwords($faker->word);
             $taxa = Taxon::create([
                 'name' => $name,
-                'type' => $faker->randomElement(['Kingdom', 'Phylum', 'Class', 'Order', 'Family', 'Tribe', 'Genus', 'Species']),
+                'rank' => $faker->randomElement(['Domain', 'Kingdom', 'Phylum', 'Class', 'Order', 'Family', 'Genus', 'Species']),
                 'url' => 'http://wikipedia.org/' . str_replace(' ', '_', $name),
             ]);
 

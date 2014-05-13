@@ -1,12 +1,14 @@
 <?php namespace Clades\Taxa;
 
 use Baum\Node;
+use Baum\Extensions\Eloquent\Collection as BaumCollection;
 
 /**
 * Taxon
 */
 class Taxon extends Node
 {
+    public $majorRanks = ['domain', 'kingdom', 'phylum', 'class', 'order', 'family', 'genus', 'species'];
 
     /**
     * Table name.
@@ -58,6 +60,11 @@ class Taxon extends Node
     */
     protected $scoped = array();
 
+    public function source()
+    {
+        return $this->belongsTo('\Clades\Sources\Source');
+    }
+
     public function taxonomy()
     {
         $taxonomy = [];
@@ -68,6 +75,62 @@ class Taxon extends Node
         }
 
         return $taxonomy;
+    }
+
+    public function scopeByKeywords($query, $keywords)
+    {
+        return $query->where('name', 'LIKE', $keywords);
+    }
+
+    public function scopeOnlyMajorRanks($query)
+    {
+        return $query->whereIn('rank', $this->majorRanks);
+    }
+
+    public function ancestorsAndDescendants($up = 1, $down = 1)
+    {
+        $ancestors = $this->ancestors()->where('depth', '>=', $this->depth - $up)->get();
+        $descendants = $this->descendants()->where('depth', '<=', $this->depth + $down)->get();
+
+        $combined = (new BaumCollection)
+            ->merge($ancestors)
+            ->merge($descendants);
+
+        return $combined;
+    }
+
+    public function ancestorsAndDescendantsAndSelf($up = 1, $down = 1)
+    {
+        $combined = $this->ancestorsAndDescendants($up, $down);
+
+        $combined->push($this);
+
+        return $combined;
+    }
+
+    public function ancestorsAndDescendantsAndSiblingsAndSelf($up = 1, $down = 1)
+    {
+        $siblings = $this->getSiblings();
+
+        $combined = $this->ancestorsAndDescendantsAndSelf($up, $down);
+
+        $combined = $combined->merge($siblings);
+
+        return $combined;
+    }
+
+    public function getTree($up = 1, $down = 1, $siblings = false)
+    {
+        if ($siblings)
+        {
+            $combined = $this->ancestorsAndDescendantsAndSiblingsAndSelf($up, $down);
+        }
+        else
+        {
+            $combined = $this->ancestorsAndDescendantsAndSelf($up, $down);
+        }
+
+        return $combined->toHierarchy();
     }
 
 }

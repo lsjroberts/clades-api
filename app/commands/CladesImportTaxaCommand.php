@@ -32,7 +32,7 @@ class CladesImportTaxaCommand extends Command {
 
             $taxon = Taxon::create([
                 'name' => $row['name'],
-                'type' => $row['type'],
+                'rank' => $row['rank'],
                 'extant' => ("" === $row['extant']) ? true : (bool) $row['extant'],
             ]);
 

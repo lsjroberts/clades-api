@@ -6,6 +6,8 @@ use Clades\Transformer\TaxonTransformer;
 
 class TaxaController extends ApiController
 {
+    public $showView = 'taxa.show';
+
     public function index()
     {
         if (! Input::has('q'))
@@ -14,6 +16,13 @@ class TaxaController extends ApiController
         }
 
         $taxa = Taxon::query()->byKeywords(Input::get('q'));
+
+        if (Input::has('ranks') and Input::get('ranks') == 'major')
+        {
+            $taxa->onlyMajorRanks();
+        }
+
+        $taxa = $taxa->get();
 
         return $this->respondWithCollection($taxa, new TaxonTransformer);
     }

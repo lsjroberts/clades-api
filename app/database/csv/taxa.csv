@@ -1,4 +1,4 @@
-name,type,parent,extant
+name,rank,parent,extant
 Life,life,,
 Bacteria,domain,Life,
 Archaea,domain,Life,
